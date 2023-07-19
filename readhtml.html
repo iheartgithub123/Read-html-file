@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Read HTML File</title>
+  </head>
+  <body>
+    <h1>Read HTML File</h1>
+    <input type="file" id="file-input">
+    <button onclick="readHtmlFile()">Read</button>
+    <div id="html-content"></div>
+
+    <script>
+      function readHtmlFile() {
+        var fileInput = document.getElementById("file-input");
+        var file = fileInput.files[0];
+        var reader = new FileReader();
+        reader.onload = function() {
+          var htmlContent = reader.result;
+          document.getElementById("html-content").innerHTML = htmlContent;
+        };
+        reader.readAsText(file);
+      }
+    </script>
+  </body>
+</html>
